@@ -20,4 +20,9 @@ interface Tag {
     value: string,
     color: string
 }
-export type { Job, Tag, Category }
+interface AppState {
+    jobs : Job[],
+    filters : string[],
+    loading: boolean
+  }
+export type { Job, Tag, Category, AppState }
