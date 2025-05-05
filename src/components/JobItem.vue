@@ -1,0 +1,34 @@
+<script setup lang="ts">
+import type { Job } from "../type"
+import { Ultility, Tag, Category } from ".";
+const props = defineProps<{ job: Job }>()
+const image = new URL(props.job.logo, import.meta.url).href
+</script>
+
+<template>
+    <div class="border-0 border-l-4 border-main rounded-md shadow-lg shadow-main/50 relative bg-white p-6">
+        <img :src="image" :alt="job.company" class="size-12 object-cover absolute left-6 top-0 -translate-y-1/2 ">
+        <div class="mt-2">
+            <div class="flex items-center justify-start gap-2">
+                <h2 class="font-bold text-sm text-main md:text-lg cursor-pointer mr-8">{{ job.company }}</h2>
+                <Tag v-if="job.new" value="new" color="new" />
+                <Tag v-if="job.featured" value="featured" color="featured" />
+            </div>
+            <h1 class="font-bold text-base leading-6 text-dark md:text-[22px] cursor-pointer">{{ job.position }}</h1>
+            <div>
+                <Ultility :value="job.postedAt" />
+                <span class="size-4 rounded-full bg-dark-light"></span>
+                <Ultility :value="job.contract" />
+                <span class="size-4 rounded-full bg-dark-light"></span>
+                <Ultility :value="job.location" />
+            </div>
+        </div>
+
+        <div class="w-full h-[1px] bg-dark-light"></div>
+        <div class="flex flex-wrap items-center gap-4">
+            <Category v-for="(item, index) in job.tools" :key="index" :value="item" />
+        </div>
+    </div>
+
+</template>
+<style scoped></style>
