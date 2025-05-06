@@ -7,7 +7,7 @@ const isMobile = computed(() => {
 </script>
 <template>
     <div class="bg-main">
-        <img v-if="!isMobile" src="../assets/bg-header-desktop.svg" alt="header" class="w-full object-cover">
-        <img v-else="isMobile" src="../assets/bg-header-mobile.svg" alt="header" class="w-full object-cover">
+        <img v-if="!isMobile" src="/assets/bg-header-desktop.svg" alt="header" class="w-full object-cover">
+        <img v-else="isMobile" src="/assets/bg-header-mobile.svg" alt="header" class="w-full object-cover">
     </div>
 </template>

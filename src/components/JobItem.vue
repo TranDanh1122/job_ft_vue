@@ -2,11 +2,10 @@
 import type { Job } from "../type";
 import { Ultility, Tag, Category } from ".";
 import { computed } from "vue";
-const props = defineProps<{ job: Job }>();
-const image = new URL(props.job.logo, import.meta.url).href;
+defineProps<{ job: Job }>();
 const emit = defineEmits()
-const addFilter = (filter : string) => {
-  emit( "addFilter" , filter)
+const addFilter = (filter: string) => {
+    emit("addFilter", filter)
 }
 const isMobile = computed(() => {
     return window.innerWidth < 768
@@ -14,8 +13,10 @@ const isMobile = computed(() => {
 </script>
 
 <template>
-    <div class="border-0 border-l-4 border-main rounded-md shadow-lg shadow-main/50 relative bg-white p-6 flex flex-col md:flex-row gap-4">
-        <img :src="image" :alt="job.company" class="size-12 md:size-22 object-cover absolute md:static left-6 top-0 -translate-y-1/2 md:-translate-y-0" />
+    <div
+        class="border-0 border-l-4 border-main rounded-md shadow-lg shadow-main/50 relative bg-white p-6 flex flex-col md:flex-row gap-4">
+        <img :src="job.logo" :alt="job.company"
+            class="size-12 md:size-22 object-cover absolute md:static left-6 top-0 -translate-y-1/2 md:-translate-y-0" />
         <div class="mt-2 flex flex-col gap-2">
             <div class="flex items-center justify-start gap-2">
                 <h2 class="font-bold text-sm text-main md:text-lg cursor-pointer mr-8">
