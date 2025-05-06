@@ -9,7 +9,12 @@
   --color-main: #5CA5A5;
   --color-main-light: #EFF6F6
 }
-
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 0.3s;
+}
+.fade-enter-from, .fade-leave-to {
+  opacity: 0;
+}
 :root {
   font-family: "League Spartan";
 }
